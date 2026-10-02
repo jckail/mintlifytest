@@ -1,47 +1,42 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Make a documentation change and preview it locally."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+Make your first edit to the starter, then check it in a local preview.
 
 ## Prerequisites
 
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+Use a local clone of this repository, Node.js 22 with npm, and internet access for the Mintlify CLI’s first download. You do not need an application API key to edit these documentation pages.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Edit a page">
+    Open `index.mdx` and change a sentence or card description. Preserve its `title` and `description` frontmatter. For a new page, add its extensionless path to `docs.json`.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+  <Step title="Start the preview">
+    Run this command from the directory containing `docs.json`:
 
     ```bash
-    your-cli init
+    npx --yes mint@4.2.970 dev
     ```
+
+    Open `http://localhost:3000`. Check the edited text, sidebar and cards. Stop the preview with Ctrl+C when you finish.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+  <Step title="Check before review">
+    Run the source check and the pinned Mintlify checks:
 
     ```bash
-    your-cli start
+    python3 scripts/check-docs.py
+    npx --yes mint@4.2.970 broken-links
+    npx --yes mint@4.2.970 validate
     ```
+
+    Review the diff and CI results before merging. CLI validation and a visual review provide different evidence; a source link check alone does not verify the rendered site.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## Next steps
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+Read the [architecture](/docs/architecture) to understand the source boundaries, or the [developer guide](/docs/developer-guide) to add pages and maintain navigation.
+
+Publishing requires a connected Mintlify project. The inherited **Dashboard** link opens Mintlify’s service; it does not prove this repository has a connected deployment.

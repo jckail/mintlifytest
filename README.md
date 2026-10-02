@@ -1,55 +1,31 @@
-# Mintlify Starter Kit
+# Mintlify documentation starter
 
-Use the starter kit to get your docs deployed and ready to customize.
+A public [Mintlify](https://mintlify.com) starter used to explore MDX documentation. This repository contains the site configuration, four documentation pages and Mintlify’s original logo/favicon assets. It does not implement an application backend or an API reference.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+Start with [Introduction](index.mdx) and [Quickstart](quickstart.mdx). Read the [architecture](docs/architecture.mdx) and [developer guide](docs/developer-guide.mdx) when maintaining the site.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## Preview and check
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+Use Node.js 22 and run these commands from the repository root:
 
 ```bash
-npx skills add https://mintlify.com/docs
+npx --yes mint@4.2.970 dev
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+The CLI is pinned to the version checked for this audit. It downloads dependencies on first use and serves the local preview at `http://localhost:3000`.
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+python3 scripts/check-docs.py
+npx --yes mint@4.2.970 broken-links
+npx --yes mint@4.2.970 validate
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+The Python check uses the standard library to verify local navigation, content links, assets and basic source structure. It is not an MDX compiler. GitHub Actions also runs the pinned Mintlify link/build validation commands. Read the actual CI result before claiming the rendered site is verified.
 
-```
-mint dev
-```
+## Customize and publish
 
-View your local preview at `http://localhost:3000`.
+Edit MDX content and add new page paths to `docs.json`. Keep Mintlify components and root-relative extensionless links in site pages. The repository retains the `mint` theme, green palette and upstream navigation/resource links.
 
-## Publishing changes
+Publishing requires a Mintlify project connected to this repository through the dashboard. A repository connection, deployment URL and hosted publication have not been verified here; pushing a commit alone does not establish that setup.
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+The starter and original assets are from Mintlify. Preserve the [MIT license](LICENSE), including its copyright notice, when adapting them. See the official [CLI reference](https://www.mintlify.com/docs/cli/commands), [navigation guide](https://www.mintlify.com/docs/organize/navigation) and [component documentation](https://www.mintlify.com/docs/components).

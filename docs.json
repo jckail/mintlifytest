@@ -11,10 +11,17 @@
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "Getting started",
         "pages": [
           "index",
           "quickstart"
+        ]
+      },
+      {
+        "group": "Maintaining the starter",
+        "pages": [
+          "docs/architecture",
+          "docs/developer-guide"
         ]
       }
     ],

@@ -5,3 +5,8 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Local audit and tooling artifacts
+.superdesign/
+scripts/
+AGENTS.md

@@ -1,0 +1,43 @@
+---
+title: "Developer guide"
+description: "Add pages, preserve branding and validate documentation changes."
+---
+
+Work from the repository root, where `docs.json` lives. Use Node.js 22 and the pinned Mintlify CLI from the [quickstart](/quickstart). There is no application dependency installation or backend startup step in this starter.
+
+## Add a page
+
+Create a kebab-case MDX file with a clear title and description:
+
+```mdx
+---
+title: "Writing a guide"
+description: "Explain one task with a short, usable example."
+---
+
+Describe what the reader will accomplish before listing the steps.
+```
+
+Add its extensionless file path to the appropriate group in `docs.json`. In site content, link with a root-relative path such as `/docs/architecture`. A GitHub README uses file-relative paths with extensions so its links work in the repository view.
+
+Use built-in Mintlify components for cards and steps. Keep link labels descriptive, give meaningful images alt text, and use sentence case for headings. Check both narrow and wide layouts in the preview when changing navigation or cards.
+
+## Check your changes
+
+```bash
+python3 scripts/check-docs.py
+npx --yes mint@4.2.970 broken-links
+npx --yes mint@4.2.970 validate
+```
+
+The source check catches missing local page/asset targets, duplicate navigation entries, absent page titles/descriptions, unlabeled code fences and unbalanced built-in component tags. It also flags placeholder package commands and image references without alt text. It uses Python’s standard library and does not compile MDX.
+
+GitHub Actions runs that source check and the pinned CLI checks in one documentation job. Keep the CLI version consistent here, in the quickstart, README and workflow when updating it. Consult the [official CLI reference](https://www.mintlify.com/docs/cli/commands) for command behavior and the [official Mermaid guide](https://www.mintlify.com/docs/components/mermaid-diagrams) for diagrams. CLI build validation does not replace a browser review or establish hosted publication.
+
+## Preserve the starter boundary
+
+Keep the original Mintlify assets and [MIT attribution](https://github.com/jckail/mintlifytest/blob/main/LICENSE) when adapting this template. The site name and `mint` theme remain Mintlify’s starter identity. Add product claims only when they describe actual implemented source or a verified external service.
+
+The **Dashboard** and **Support** links are inherited Mintlify resources. Configure a Mintlify project and verify its GitHub connection before describing automatic publishing for this repository. No connected deployment URL is established by the starter audit.
+
+For the source map and diagram, read [Starter architecture](/docs/architecture).
