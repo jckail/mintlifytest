@@ -1,3 +1,4 @@
 .superdesign/
 .mintlify/
 node_modules/
+.worktrees/
