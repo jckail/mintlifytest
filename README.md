@@ -27,7 +27,7 @@ npx --yes mint@4.2.970 broken-links
 npx --yes mint@4.2.970 validate
 ```
 
-The Python check uses the standard library to verify local navigation, content links, assets and basic source structure. It is not an MDX compiler. GitHub Actions also runs the pinned Mintlify link/build validation commands. Read the actual CI result before claiming the rendered site is verified.
+The Python check uses the standard library to verify local navigation, content links, assets and basic source structure. It is not an MDX compiler. Depot CI also runs the pinned Mintlify link/build validation commands. Read the actual CI result before claiming the rendered site is verified.
 
 ## Customize and publish
 

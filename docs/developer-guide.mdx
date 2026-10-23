@@ -32,7 +32,7 @@ npx --yes mint@4.2.970 validate
 
 The source check catches missing local page/asset targets, duplicate navigation entries, absent page titles/descriptions, unlabeled code fences and unbalanced built-in component tags. It also flags placeholder package commands and image references without alt text. It uses Python’s standard library and does not compile MDX.
 
-GitHub Actions runs that source check and the pinned CLI checks in one documentation job. Keep the CLI version consistent here, in the quickstart, README and workflow when updating it. Consult the [official CLI reference](https://www.mintlify.com/docs/cli/commands) for command behavior and the [official Mermaid guide](https://www.mintlify.com/docs/components/mermaid-diagrams) for diagrams. CLI build validation does not replace a browser review or establish hosted publication.
+Depot CI (`.depot/workflows/ci.yml`) runs that source check and the pinned CLI checks in one documentation job. Keep the CLI version consistent here, in the quickstart, README and workflow when updating it. Consult the [official CLI reference](https://www.mintlify.com/docs/cli/commands) for command behavior and the [official Mermaid guide](https://www.mintlify.com/docs/components/mermaid-diagrams) for diagrams. CLI build validation does not replace a browser review or establish hosted publication.
 
 ## Preserve the starter boundary
 
